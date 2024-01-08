@@ -1,0 +1,644 @@
+{
+  "Uuid": "8d6bc120-70a6-4fa3-bc0e-bcb7da067feb",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "FamilyInstanceBygeometry",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "56536da3-7b08-4f8f-aa35-757a03aadb89-00001533"
+      ],
+      "Id": "a32274275aef4008a67e02797bad879c",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "7fb9b0461f8e401d892232558d7736e4",
+          "Name": "Element",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Function, DynamoCore",
+      "FunctionSignature": "2416ec21-d9a2-4c67-a742-20d5cf82446e",
+      "FunctionType": "Graph",
+      "NodeType": "FunctionNode",
+      "Id": "d81598289fb74951adf2cb3b5c4cfbcb",
+      "Inputs": [
+        {
+          "Id": "1f504f1afa334ac2826f61e05c6c0cb8",
+          "Name": "geometry",
+          "Description": "var[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "e9c17531f7634ba3a5b1be07a7152d72",
+          "Name": "category",
+          "Description": "var[]\nDefault value : null",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "270c2017110244c88f48199d7d6b081d",
+          "Name": "name",
+          "Description": "var[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "a08591176dc942879dc4ecfc424521b3",
+          "Name": "DirectShape",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Convert the input geometry to DirectShape element inside the Revit document.  It supports solids or surfaces. It is based on an alternative process that uses a SAT import and can produce smooth surfaces. Each created DS will have a unique type. Make sure that each input geometry has a unique name. You can either feed a single category for all geometries or a unique category for each geometry - the node's lacing is set to longest by default. The default category is \r\nGeneric Models."
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.Categories, DSRevitNodesUI",
+      "SelectedIndex": 283,
+      "SelectedString": "OST_GenericModel",
+      "NodeType": "ExtensionNode",
+      "Id": "eb4325cf48054c0fb3b8a4130f647191",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "2c0289444743403fa050e81d9cc62e5b",
+          "Name": "Category",
+          "Description": "The selected Category.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "All built-in categories."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "\"Machin\";",
+      "Id": "2770ee1bf15e467bbb29d6c86c4181d4",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "969ded3b4a4849caa263050902a1153f",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Revit.Elements.Element.Geometry",
+      "Id": "5c48de407e914934b15b1d027567a5a1",
+      "Inputs": [
+        {
+          "Id": "2aa4eb2b96f44007b6bb17fa64ec8132",
+          "Name": "element",
+          "Description": "Revit.Elements.Element",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "dcf3d8dc21bc421887cafb37024f784f",
+          "Name": "var[]",
+          "Description": "var[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Get all of the Geometry associated with this object\n\nElement.Geometry ( ): var[]"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Function, DynamoCore",
+      "FunctionSignature": "ecdb3729-0de2-4c50-bdca-28fe881027a2",
+      "FunctionType": "Graph",
+      "NodeType": "FunctionNode",
+      "Id": "9dc30f83e2e148229975c2eba781be3e",
+      "Inputs": [
+        {
+          "Id": "b0f7a4ae299147d38032b76304292c09",
+          "Name": "geometry",
+          "Description": "var[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "65870af5711a4e1ab5c9d8fc32cf1a40",
+          "Name": "familyTemplatePath",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "e6bdc49952b8409f917449b2c6289ca0",
+          "Name": "familyName",
+          "Description": "var[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "06ca9e42ce074b6588842301ee420a0a",
+          "Name": "category",
+          "Description": "var[]\nDefault value : Revit.Elements.Category.ByName(\"OST_GenericModel\")",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "032b2f9b51a447009ccaca300a697a32",
+          "Name": "materialName",
+          "Description": "var[]\nDefault value : null",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "82b8ae22d3754d3aa7183a5b80f952de",
+          "Name": "isVoid",
+          "Description": "var[]\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "ad5adbf8477f4ebd9612a25134d7f993",
+          "Name": "subcategoryName",
+          "Description": "var[]\nDefault value : null",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "4752b3c658e447a089732aea9e6bc1c1",
+          "Name": "instance",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "3a2a6fba45144cf383515c4ca8c524f4",
+          "Name": "family",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "You must provide a valid family template path that will be used for all input geometry objects. The project units(and not the templates) will be used to determine the size of the output geometry.\r\nThe provided category will be used only if the family template supports it. If not, the default template category will be used instead.\r\nLikewise, the family material(provided as a string) will be set only if a material with that name exists in the template. If not, the default material will be used instead (\"By Category\").\r\nFor void cuts, the material settings will be ignored.\r\nThe Subcategory name is an optional input. If you'd like to skip assigning a Subcategory to any new instance, simply use null.\r\nThe node expects a unique family name for each geometry object. The rest of the input lists will be processed as if the node lacing is set to longest."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.Filename, CoreNodeModels",
+      "HintPath": "C:\\ProgramData\\Autodesk\\RVT 2023\\Family Templates\\English\\Metric Generic Model.rft",
+      "InputValue": "C:\\ProgramData\\Autodesk\\RVT 2023\\Family Templates\\English\\Metric Generic Model.rft",
+      "NodeType": "ExtensionNode",
+      "Id": "f138c785857544d1ab8d4b45275d1960",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "e5f63ec1a8754f949bb1770b67f203a0",
+          "Name": "",
+          "Description": "File Path",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows you to select a file on the system to get its file path."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "a;",
+      "Id": "588606a153364be48abafabae0f8df41",
+      "Inputs": [
+        {
+          "Id": "1ab17f82423a433c988d65d823ceeb27",
+          "Name": "a",
+          "Description": "a",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "79f3b242f4dc42c0a2a40ad4a5a98f29",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Function, DynamoCore",
+      "FunctionSignature": "b76d6ba6-5304-461d-9154-5c22065de387",
+      "FunctionType": "Graph",
+      "NodeType": "FunctionNode",
+      "Id": "0904d028e331427197353e57127c9c03",
+      "Inputs": [
+        {
+          "Id": "9b8a1568e6ec40a6bedb5a853690ac27",
+          "Name": "VARgeometry",
+          "Description": "var[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "8a919e2ab3c444379bab649802b43265",
+          "Name": "VARfamilyTemplatePath",
+          "Description": "var",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "a9eb0e2de126444da386097d3b14af3c",
+          "Name": "VARfamilyName",
+          "Description": "var[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "592bd9ccff324a669a93f4b0d5b3c379",
+          "Name": "VARcategory",
+          "Description": "var[]\nDefault value : Revit.Elements.Category.ByName(\"OST_GenericModel\")",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "616cdc12612a47fab3781d8ee7d99f38",
+          "Name": "VARmaterialName",
+          "Description": "var[]\nDefault value : null",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "a4f7ebd8432045798f0f8184a6528d73",
+          "Name": "VARisVoid",
+          "Description": "var[]\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "349626850e884da9b7a3e41b532c665c",
+          "Name": "VARsubcategoryName",
+          "Description": "var[]\nDefault value : null",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "0e45ff44d47644c1b56c0e7f5b8695d2",
+          "Name": "VARisShared",
+          "Description": "var[]\nDefault value : null",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "15ba7e07a8444ac284251a5d166fcc99",
+          "Name": "VARPlaceInstance",
+          "Description": "bool[]\nDefault value : true",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "0177b77978b44250a224478752296fd3",
+          "Name": "VARPositionSystemFalseIsInstanceOriginTrueRelativeToProjectOrigin",
+          "Description": "bool[]\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "d5ccddfea76a4b9f9e963efc43f2c644",
+          "Name": "VARonemat",
+          "Description": "bool[]\nDefault value : false",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "5f23694e5ba8426d92c8b60ddb2ef361",
+          "Name": "VARIsInstanceMat",
+          "Description": "bool[]\nDefault value : true",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "910824234c734f1a9f54223cfe03a7d6",
+          "Name": "VARinstance",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "ae9d80c081dc48f498167cda9d376619",
+          "Name": "VARfamily",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "You must provide a valid family template path that will be used for all input geometry objects. The project units(and not the templates) will be used to determine the size of the output geometry.\r\nThe provided category will be used only if the family template supports it. If not, the default template category will be used instead.\r\nLikewise, the family material(provided as a string) will be set only if a material with that name exists in the template. If not, the default material will be used instead (\"By Category\").\r\nFor void cuts, the material settings will be ignored.\r\nThe Subcategory name is an optional input. If you'd like to skip assigning a Subcategory to any new instance, simply use null.\r\nThe node expects a unique family name for each geometry object. The rest of the input lists will be processed as if the node lacing is set to longest."
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "7fb9b0461f8e401d892232558d7736e4",
+      "End": "2aa4eb2b96f44007b6bb17fa64ec8132",
+      "Id": "70f4df27b53344eebb20b2a0ef3335ca",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "2c0289444743403fa050e81d9cc62e5b",
+      "End": "592bd9ccff324a669a93f4b0d5b3c379",
+      "Id": "784a9350ad9e49bda1b3a32083b2e774",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "969ded3b4a4849caa263050902a1153f",
+      "End": "a9eb0e2de126444da386097d3b14af3c",
+      "Id": "68f19d8345ee4b71849bde759bbf88b5",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "dcf3d8dc21bc421887cafb37024f784f",
+      "End": "9b8a1568e6ec40a6bedb5a853690ac27",
+      "Id": "ee68a2db02e24d1f9616bac559ae84b5",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "4752b3c658e447a089732aea9e6bc1c1",
+      "End": "1ab17f82423a433c988d65d823ceeb27",
+      "Id": "298f1eb10d4f4e9cbe3e32053dc44f81",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "e5f63ec1a8754f949bb1770b67f203a0",
+      "End": "8a919e2ab3c444379bab649802b43265",
+      "Id": "0c43c6ad5b0e43fbb3636849bb637a1c",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [
+    "2416ec21-d9a2-4c67-a742-20d5cf82446e",
+    "ecdb3729-0de2-4c50-bdca-28fe881027a2",
+    "b76d6ba6-5304-461d-9154-5c22065de387"
+  ],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "spring nodes",
+      "Version": "210.1.1",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "d81598289fb74951adf2cb3b5c4cfbcb",
+        "9dc30f83e2e148229975c2eba781be3e"
+      ]
+    },
+    {
+      "Name": "Synthesize toolkit",
+      "Version": "11.9.6",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "0904d028e331427197353e57127c9c03"
+      ]
+    },
+    {
+      "Name": "Metric Generic Model.rft",
+      "ReferenceType": "External",
+      "Nodes": [
+        "f138c785857544d1ab8d4b45275d1960"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.13",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.13.1.3887",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -780.3671875,
+      "EyeY": 15578.07421875,
+      "EyeZ": 2567.419677734375,
+      "LookX": 2278.26806640625,
+      "LookY": -4163.39453125,
+      "LookZ": -3523.094482421875,
+      "UpX": 0.29096382856369019,
+      "UpY": 0.84432804584503174,
+      "UpZ": -0.44994464516639709
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Select Model Element",
+        "ShowGeometry": true,
+        "Id": "a32274275aef4008a67e02797bad879c",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 71.620239112914931,
+        "Y": 152.3310824800518
+      },
+      {
+        "Name": "ꟿ DirectShape.ByGeometry",
+        "ShowGeometry": true,
+        "Id": "d81598289fb74951adf2cb3b5c4cfbcb",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 683.76501438634477,
+        "Y": 749.04888003271935
+      },
+      {
+        "Name": "Categories",
+        "ShowGeometry": true,
+        "Id": "eb4325cf48054c0fb3b8a4130f647191",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 58.630792368026221,
+        "Y": 491.62372543277826
+      },
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "2770ee1bf15e467bbb29d6c86c4181d4",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 89.072366712645987,
+        "Y": 636.60682943252561
+      },
+      {
+        "Name": "Element.Geometry",
+        "ShowGeometry": true,
+        "Id": "5c48de407e914934b15b1d027567a5a1",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 515.907477194951,
+        "Y": 160.08108775875561
+      },
+      {
+        "Name": "ꟿ FamilyInstance.ByGeometry",
+        "ShowGeometry": true,
+        "Id": "9dc30f83e2e148229975c2eba781be3e",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1105.9745114811683,
+        "Y": -5.6562237257670631
+      },
+      {
+        "Name": "File Path",
+        "ShowGeometry": true,
+        "Id": "f138c785857544d1ab8d4b45275d1960",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -35.993896898689968,
+        "Y": 350.97346754282046
+      },
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "588606a153364be48abafabae0f8df41",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1530.9162121324309,
+        "Y": 164.36501839368947
+      },
+      {
+        "Name": "SP.FamilyInstance.ByGeometry",
+        "ShowGeometry": true,
+        "Id": "0904d028e331427197353e57127c9c03",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1525.9729721591661,
+        "Y": 329.2507890387165
+      }
+    ],
+    "Annotations": [],
+    "X": -284.66135220435723,
+    "Y": 124.40832004804807,
+    "Zoom": 0.40274919283760308
+  }
+}

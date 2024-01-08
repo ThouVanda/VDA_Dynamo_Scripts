@@ -1,0 +1,369 @@
+{
+  "Uuid": "3ec18770-c912-4b77-991d-fe12aaf2e460",
+  "IsCustomNode": false,
+  "Description": null,
+  "Name": "SPCC_AutoJoint",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [
+    {
+      "Id": "b1d6e5d64b56422caf596cad3b2dba9e",
+      "Name": "Categories (A)",
+      "Type": "selection",
+      "Type2": "dropdownSelection",
+      "Value": "OST_StructuralFraming",
+      "Description": "All built-in categories.",
+      "SelectedIndex": 620
+    },
+    {
+      "Id": "b6187963768d4335ac97bd86b371e6f7",
+      "Name": "Categories (B)",
+      "Type": "selection",
+      "Type2": "dropdownSelection",
+      "Value": "OST_StructuralColumns",
+      "Description": "All built-in categories.",
+      "SelectedIndex": 592
+    }
+  ],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "DSRevitNodesUI.Categories, DSRevitNodesUI",
+      "SelectedIndex": 620,
+      "SelectedString": "OST_StructuralFraming",
+      "Id": "b1d6e5d64b56422caf596cad3b2dba9e",
+      "NodeType": "ExtensionNode",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "3520d90dd933400f9ce431c4fb5b28ae",
+          "Name": "Category",
+          "Description": "The selected Category.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "All built-in categories."
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.Categories, DSRevitNodesUI",
+      "SelectedIndex": 592,
+      "SelectedString": "OST_StructuralColumns",
+      "Id": "b6187963768d4335ac97bd86b371e6f7",
+      "NodeType": "ExtensionNode",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "ca945f190788462d92f1af0fbb97808f",
+          "Name": "Category",
+          "Description": "The selected Category.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "All built-in categories."
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.ElementsOfCategory, DSRevitNodesUI",
+      "Id": "4ceca7ed45354694908fd19004b60d5d",
+      "NodeType": "ExtensionNode",
+      "Inputs": [
+        {
+          "Id": "a626c11117514ba68760b39bc6f2d214",
+          "Name": "Category",
+          "Description": "The Category",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "8e1a021a869f437d8d64e6fb076b65e5",
+          "Name": "Elements",
+          "Description": "An element type.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Get all elements of the specified category from the model."
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.ElementsOfCategory, DSRevitNodesUI",
+      "Id": "b67e777d379f4d15bc15600afb9099b6",
+      "NodeType": "ExtensionNode",
+      "Inputs": [
+        {
+          "Id": "5bbaab56c9d84ade92b63140f36132fe",
+          "Name": "Category",
+          "Description": "The Category",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "c343fc4265fa43579f7b313ae4e37f2a",
+          "Name": "Elements",
+          "Description": "An element type.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Get all elements of the specified category from the model."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Function, DynamoCore",
+      "FunctionSignature": "8082d55c-2c72-4e19-b372-8b097006db03",
+      "FunctionType": "Graph",
+      "Id": "696ae01c3afb4057bc8c548a6b46a77e",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "73cdcb05cda4404dbf0ef39f082f43ba",
+          "Name": "Elementlist",
+          "Description": "var[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "586ba164d813467cbd92ab3847e6c87c",
+          "Name": "Seccess?",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "91f42171704140c491a3447759008b7c",
+          "Name": "Already Joined",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Join Selected Geometry"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.CreateList, CoreNodeModels",
+      "VariableInputPorts": true,
+      "Id": "1d6da10cd6584b26914f533e21d7f836",
+      "NodeType": "ExtensionNode",
+      "Inputs": [
+        {
+          "Id": "58163e41520448b694fb8c10fa5f0f09",
+          "Name": "item0",
+          "Description": "Item Index #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "bc6732cca7e14f2dafd5d83656729d9a",
+          "Name": "item1",
+          "Description": "Item Index #1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "b83b3ded6e9d4bf1862a98f6104e92de",
+          "Name": "list",
+          "Description": "A list (type: var[]..[])",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Makes a new list from the given inputs"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "3520d90dd933400f9ce431c4fb5b28ae",
+      "End": "a626c11117514ba68760b39bc6f2d214",
+      "Id": "95ddfe5f4baf47bd9d76dcf793faac16",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "ca945f190788462d92f1af0fbb97808f",
+      "End": "5bbaab56c9d84ade92b63140f36132fe",
+      "Id": "be90b106b3cd4ee6b22535a46e48d7c8",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "8e1a021a869f437d8d64e6fb076b65e5",
+      "End": "58163e41520448b694fb8c10fa5f0f09",
+      "Id": "de7f83c9edd64d71b9d17f6cae2867e5",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "c343fc4265fa43579f7b313ae4e37f2a",
+      "End": "bc6732cca7e14f2dafd5d83656729d9a",
+      "Id": "1b3b9129f4724129b5acb8060b6f1301",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "b83b3ded6e9d4bf1862a98f6104e92de",
+      "End": "73cdcb05cda4404dbf0ef39f082f43ba",
+      "Id": "7038566fb5844e8ca1743be4f2ce5ab9",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [
+    "8082d55c-2c72-4e19-b372-8b097006db03"
+  ],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "Hot Gear",
+      "Version": "2017.11.9",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "696ae01c3afb4057bc8c548a6b46a77e"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.13",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "2.0",
+      "Data": {}
+    }
+  ],
+  "Author": "None provided",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.19.3.6394",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Background Preview",
+      "EyeX": -15.750494956970215,
+      "EyeY": 22.646369934082031,
+      "EyeZ": 43.960723876953125,
+      "LookX": 10.750494956970215,
+      "LookY": -11.646369934082031,
+      "LookZ": -51.960723876953125,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Id": "b1d6e5d64b56422caf596cad3b2dba9e",
+        "Name": "Categories (A)",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": -153.0839454739077,
+        "Y": 91.033341237523473
+      },
+      {
+        "Id": "b6187963768d4335ac97bd86b371e6f7",
+        "Name": "Categories (B)",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": -161.18225550043172,
+        "Y": 272.12821286601849
+      },
+      {
+        "Id": "4ceca7ed45354694908fd19004b60d5d",
+        "Name": "All Elements of Category",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 187.12434947264185,
+        "Y": 90.878581529112921
+      },
+      {
+        "Id": "b67e777d379f4d15bc15600afb9099b6",
+        "Name": "All Elements of Category",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 201.35971301321158,
+        "Y": 266.8774332663325
+      },
+      {
+        "Id": "696ae01c3afb4057bc8c548a6b46a77e",
+        "Name": "Join Geometry",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 743.25696036725481,
+        "Y": 176.16474246264124
+      },
+      {
+        "Id": "1d6da10cd6584b26914f533e21d7f836",
+        "Name": "List Create",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 522.68619961142917,
+        "Y": 166.17993965472516
+      }
+    ],
+    "Annotations": [],
+    "X": 344.39347609421827,
+    "Y": 58.6201028496111,
+    "Zoom": 0.86275907343266944
+  }
+}

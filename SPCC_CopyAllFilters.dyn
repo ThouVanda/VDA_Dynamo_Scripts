@@ -1,0 +1,231 @@
+{
+  "Uuid": "dc065db0-d3ed-43a8-8637-78f1b4db9335",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "SPCC_CopyAllFilters",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [
+    {
+      "Id": "1d860456e48141829b0bb9454f550719",
+      "Name": "Views",
+      "Type": "dropdownSelection",
+      "Value": "B1.Y0-ប្លង់កាត់១-១",
+      "Description": "All views available in the current document.",
+      "SelectedIndex": 23
+    },
+    {
+      "Id": "832215b9ae734cbb99ccd515a185e44d",
+      "Name": "Views",
+      "Type": "dropdownSelection",
+      "Value": "{3D}",
+      "Description": "All views available in the current document.",
+      "SelectedIndex": 0
+    }
+  ],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CustomNodes.Function, DynamoCore",
+      "FunctionSignature": "c4afe98d-f31b-4403-9b58-857b78012b9c",
+      "FunctionType": "Graph",
+      "NodeType": "FunctionNode",
+      "Id": "f5da5cb065e8446398c8a0f8c137b5ec",
+      "Inputs": [
+        {
+          "Id": "020db208985a470295e029d789dd3a0b",
+          "Name": "_sourceView",
+          "Description": "The view that has the filters\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "150c776e62f94f3a9e127202def21966",
+          "Name": "_targetViews",
+          "Description": "Views to apply filters\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "09a29f48975f4069918645b603d0c6c0",
+          "Name": "_views",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "d2b242bf38a7411988f68bc107e64f26",
+          "Name": "_errorviews",
+          "Description": "return value",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "This node copies all the filters with their settings from a view to another one."
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.Views, DSRevitNodesUI",
+      "SelectedIndex": 23,
+      "SelectedString": "B1.Y0-ប្លង់កាត់១-១",
+      "NodeType": "ExtensionNode",
+      "Id": "1d860456e48141829b0bb9454f550719",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "353e65a69e5043efa182dadda0c3bd6e",
+          "Name": "Views",
+          "Description": "The selected Views",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "All views available in the current document."
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.Views, DSRevitNodesUI",
+      "SelectedIndex": 0,
+      "SelectedString": "{3D}",
+      "NodeType": "ExtensionNode",
+      "Id": "832215b9ae734cbb99ccd515a185e44d",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "097195d8790a49a48c72356e750a28d5",
+          "Name": "Views",
+          "Description": "The selected Views",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "All views available in the current document."
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "353e65a69e5043efa182dadda0c3bd6e",
+      "End": "020db208985a470295e029d789dd3a0b",
+      "Id": "eada58184bd0437baff7b7e6a104aeba",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "097195d8790a49a48c72356e750a28d5",
+      "End": "150c776e62f94f3a9e127202def21966",
+      "Id": "6cee8d76c44e46f0af05a732be9d94d5",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [
+    "c4afe98d-f31b-4403-9b58-857b78012b9c"
+  ],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "Modelical",
+      "Version": "2022.6.15",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "f5da5cb065e8446398c8a0f8c137b5ec"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.13",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "2.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.13.1.3887",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "View.CopyAllFilters",
+        "ShowGeometry": true,
+        "Id": "f5da5cb065e8446398c8a0f8c137b5ec",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 435.59999999999997,
+        "Y": 194.39999999999998
+      },
+      {
+        "Name": "Views",
+        "ShowGeometry": true,
+        "Id": "1d860456e48141829b0bb9454f550719",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 30.305797614078074,
+        "Y": 133.3409645943552
+      },
+      {
+        "Name": "Views",
+        "ShowGeometry": true,
+        "Id": "832215b9ae734cbb99ccd515a185e44d",
+        "IsSetAsInput": true,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 34.906033908111908,
+        "Y": 297.7994121060625
+      }
+    ],
+    "Annotations": [],
+    "X": 95.220259125029742,
+    "Y": 156.93588642696386,
+    "Zoom": 0.69561644130111489
+  }
+}

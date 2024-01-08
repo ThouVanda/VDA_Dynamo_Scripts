@@ -1,0 +1,95 @@
+{
+  "Uuid": "37f913ce-c2ca-41b1-9de5-5ea6202cf9e7",
+  "IsCustomNode": false,
+  "Description": null,
+  "Name": "SPCC_ExportToNaviswork",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "# Load the Python Standard and DesignScript Libraries\r\nimport.clr\r\n\r\nclr.AddReference('RevitAPI')\r\nfrom Autodesk.Revit.DB import*\r\n\r\nClr.AddReference('RevitServices')\r\nfrom RevitServices.Persistence import DocumentManager\r\n\r\nClr.Addreference('ProtoGeometry')\r\nfrom Autodesk.DesignScript.Geometry import*\r\n\r\nimport System\r\nfrom System.Collections.Generic import*\r\n\r\n#STEP 2 Connect to the current document.\r\n\r\ndoc = DocumentManager.Instance.CurrentDBDocument\r\n\r\n#STEP 3 Get name of view\r\nnames = IN[0]\r\n\r\n#STEP 4 Get directory of folder to save files.\r\ndirectory = IN[1]\r\n\r\n#STEP 5. Use filterElementCollector\r\n#This class use to search, Filter and iterate through a set of element.\r\n\r\ncollector = FilteredElementCollector(doc.)ofclass(view)\r\n\r\n#STEP 6. Use the Naviswork export options.\r\nNavisExport = NavisworksOptions()\r\nNavisExport.ExportScope = NavisworksExportScope.View\r\nNavisExport.Exportlinks = True\r\n\r\n#STEP 7. Create a new list for results.\r\n\r\nOUT = []\r\n\r\n#STEP 8. Create a loop on all filtered views for save nwc.\r\nfor i in names:\r\n    FindViewString = i.name\r\n     OUT.append(FindViewString)\r\n     \r\n     for view in collector:\r\n       if (view.ViewType == ViewType.ThreeD and view.name.contains(FindViewString)):\r\n           NavisExport.ViewId = View.Id\r\n           doc.Export(directory, view.Name + \".nwc\", NavisExport)\r\n \r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n",
+      "VariableInputPorts": true,
+      "Id": "f4b53b52c1414ad29980a694e6dd9c9e",
+      "Inputs": [
+        {
+          "Id": "925cdb70207d49579a1a3584c17d4bf5",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "29420faa79f54430a0e7c89198b94287",
+          "Name": "IN[1]",
+          "Description": "Input #1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "98cdb3f7006943038ce240d232dd1902",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs an embedded IronPython script."
+    }
+  ],
+  "Connectors": [],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.6.1.8786",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Python Script",
+        "Id": "f4b53b52c1414ad29980a694e6dd9c9e",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 614.8,
+        "Y": 286.4
+      }
+    ],
+    "Annotations": [],
+    "X": -1543.8206034201089,
+    "Y": -746.18298848080053,
+    "Zoom": 3.0738649482412859
+  }
+}

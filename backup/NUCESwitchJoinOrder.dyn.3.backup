@@ -1,0 +1,169 @@
+<Workspace Version="1.3.1.1736" X="159.854911928062" Y="-265.482376247894" zoom="0.377090732119248" ScaleFactor="1" Name="Home" Description="" RunType="Manual" RunPeriod="1000" HasRunWithoutCrash="True">
+  <NamespaceResolutionMap />
+  <Elements>
+    <DSRevitNodesUI.ElementsOfCategory guid="5f78b7a8-1fd0-4a36-92cf-b12610223df0" type="DSRevitNodesUI.ElementsOfCategory" nickname="All Elements of Category" x="382.918547020779" y="954.18693081002" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false">
+      <PortInfo index="0" default="False" />
+    </DSRevitNodesUI.ElementsOfCategory>
+    <DSRevitNodesUI.ElementsOfCategory guid="2cc0cc08-2541-485e-aa87-440f7e2f3e12" type="DSRevitNodesUI.ElementsOfCategory" nickname="All Elements of Category" x="385.088646791723" y="1107.77308228785" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false">
+      <PortInfo index="0" default="False" />
+    </DSRevitNodesUI.ElementsOfCategory>
+    <DSRevitNodesUI.Categories guid="a1c858a3-88d3-46ab-8cea-04dc2078b2d3" type="DSRevitNodesUI.Categories" nickname="Categories" x="84.8169179383303" y="959.168418877357" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" IsFrozen="false" isPinned="false" index="506:StructuralFraming" />
+    <DSRevitNodesUI.Categories guid="fbc9c7eb-5b5e-4c28-894e-8e7efa5e03c9" type="DSRevitNodesUI.Categories" nickname="Categories" x="104.673351188439" y="1096.09342854597" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" IsFrozen="false" isPinned="false" index="194:Floors" />
+    <PythonNodeModels.PythonNode guid="102c0931-2cd4-43ec-a465-b977d0684467" type="PythonNodeModels.PythonNode" nickname="NUCESwitchJoinOrder" x="632.750753905829" y="1015.42898113278" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false" inputcount="2">
+      <PortInfo index="0" default="False" />
+      <PortInfo index="1" default="False" />
+      <Script>import clr
+clr.AddReference('ProtoGeometry')
+from Autodesk.DesignScript.Geometry import *
+
+clr.AddReference("RevitAPI")
+import Autodesk
+
+clr.AddReference("RevitServices")
+import RevitServices
+from RevitServices.Persistence import DocumentManager
+from RevitServices.Transactions import TransactionManager
+
+clr.AddReference("RevitNodes")
+import Revit
+clr.ImportExtensions(Revit.Elements)
+#The inputs to this node will be stored as a list in the IN variables.
+dataEnteringNode = IN
+
+elementA = UnwrapElement(IN[0])
+elementB = UnwrapElement(IN[1])
+
+doc = DocumentManager.Instance.CurrentDBDocument
+
+NUCE = []
+TransactionManager.Instance.EnsureInTransaction(doc)
+
+for A in elementA:
+ for B in elementB:
+  try:
+   result = Autodesk.Revit.DB.JoinGeometryUtils.SwitchJoinOrder(doc,A,B)
+   NUCE.append(result)
+  except:
+   pass
+TransactionManager.Instance.TransactionTaskDone()
+#Assign your output to the OUT variable.
+OUT = NUCE</Script>
+    </PythonNodeModels.PythonNode>
+    <DSRevitNodesUI.ElementsOfCategory guid="c312ad7f-46c6-46b3-9f48-ab3a5a2971d0" type="DSRevitNodesUI.ElementsOfCategory" nickname="All Elements of Category" x="409.473776443681" y="1411.95088419056" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false">
+      <PortInfo index="0" default="False" />
+    </DSRevitNodesUI.ElementsOfCategory>
+    <PythonNodeModels.PythonNode guid="a25d6760-43ae-48f7-a3a3-e00f52941473" type="PythonNodeModels.PythonNode" nickname="NUCESwitchJoinOrder" x="680.718550356497" y="1512.63961748024" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false" inputcount="2">
+      <PortInfo index="0" default="False" />
+      <PortInfo index="1" default="False" />
+      <Script>import clr
+clr.AddReference('ProtoGeometry')
+from Autodesk.DesignScript.Geometry import *
+
+clr.AddReference("RevitAPI")
+import Autodesk
+
+clr.AddReference("RevitServices")
+import RevitServices
+from RevitServices.Persistence import DocumentManager
+from RevitServices.Transactions import TransactionManager
+
+clr.AddReference("RevitNodes")
+import Revit
+clr.ImportExtensions(Revit.Elements)
+#The inputs to this node will be stored as a list in the IN variables.
+dataEnteringNode = IN
+
+elementA = UnwrapElement(IN[0])
+elementB = UnwrapElement(IN[1])
+
+doc = DocumentManager.Instance.CurrentDBDocument
+
+NUCE = []
+TransactionManager.Instance.EnsureInTransaction(doc)
+
+for A in elementA:
+ for B in elementB:
+  try:
+   result = Autodesk.Revit.DB.JoinGeometryUtils.SwitchJoinOrder(doc,A,B)
+   NUCE.append(result)
+  except:
+   pass
+TransactionManager.Instance.TransactionTaskDone()
+#Assign your output to the OUT variable.
+OUT = NUCE</Script>
+    </PythonNodeModels.PythonNode>
+    <DSRevitNodesUI.ElementsOfCategory guid="e14e9754-9d44-4783-908f-1c792843a830" type="DSRevitNodesUI.ElementsOfCategory" nickname="All Elements of Category" x="412.982564312449" y="1640.50356914652" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false">
+      <PortInfo index="0" default="False" />
+    </DSRevitNodesUI.ElementsOfCategory>
+    <DSRevitNodesUI.Categories guid="79cf7bc1-bde6-4cf2-b707-cdf3fb7e5ca5" type="DSRevitNodesUI.Categories" nickname="Categories" x="111.372147361232" y="1416.9323722579" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" IsFrozen="false" isPinned="false" index="194:Floors" />
+    <DSRevitNodesUI.Categories guid="1fac8032-9bf5-412f-aadc-4dc5c915551b" type="DSRevitNodesUI.Categories" nickname="Categories" x="109.809571046161" y="1642.21079638288" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" IsFrozen="false" isPinned="false" index="481:StructuralColumns" />
+    <DSRevitNodesUI.ElementsOfCategory guid="9c44a5db-075e-42a9-9e01-99ee74db508e" type="DSRevitNodesUI.ElementsOfCategory" nickname="All Elements of Category" x="427.130520778038" y="1821.8023382328" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false">
+      <PortInfo index="0" default="False" />
+    </DSRevitNodesUI.ElementsOfCategory>
+    <PythonNodeModels.PythonNode guid="ae1758af-0df0-4511-a292-abbe490a7290" type="PythonNodeModels.PythonNode" nickname="NUCESwitchJoinOrder" x="701.532990386466" y="1915.14680514799" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false" inputcount="2">
+      <PortInfo index="0" default="False" />
+      <PortInfo index="1" default="False" />
+      <Script>import clr
+clr.AddReference('ProtoGeometry')
+from Autodesk.DesignScript.Geometry import *
+
+clr.AddReference("RevitAPI")
+import Autodesk
+
+clr.AddReference("RevitServices")
+import RevitServices
+from RevitServices.Persistence import DocumentManager
+from RevitServices.Transactions import TransactionManager
+
+clr.AddReference("RevitNodes")
+import Revit
+clr.ImportExtensions(Revit.Elements)
+#The inputs to this node will be stored as a list in the IN variables.
+dataEnteringNode = IN
+
+elementA = UnwrapElement(IN[0])
+elementB = UnwrapElement(IN[1])
+
+doc = DocumentManager.Instance.CurrentDBDocument
+
+NUCE = []
+TransactionManager.Instance.EnsureInTransaction(doc)
+
+for A in elementA:
+ for B in elementB:
+  try:
+   result = Autodesk.Revit.DB.JoinGeometryUtils.SwitchJoinOrder(doc,A,B)
+   NUCE.append(result)
+  except:
+   pass
+TransactionManager.Instance.TransactionTaskDone()
+#Assign your output to the OUT variable.
+OUT = NUCE</Script>
+    </PythonNodeModels.PythonNode>
+    <DSRevitNodesUI.ElementsOfCategory guid="06138292-5f7f-45c2-ad72-fbbf551775db" type="DSRevitNodesUI.ElementsOfCategory" nickname="All Elements of Category" x="430.639308646806" y="2050.35502318876" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="false">
+      <PortInfo index="0" default="False" />
+    </DSRevitNodesUI.ElementsOfCategory>
+    <DSRevitNodesUI.Categories guid="3d304424-3026-428f-9d8b-91ee65a02f2e" type="DSRevitNodesUI.Categories" nickname="Categories" x="127.466315380518" y="2052.06225042513" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" IsFrozen="false" isPinned="false" index="194:Floors" />
+    <DSRevitNodesUI.Categories guid="1a8eeef5-fa96-4e33-9b42-ee3ace541f49" type="DSRevitNodesUI.Categories" nickname="Categories" x="129.028891695589" y="1826.78382630014" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" IsFrozen="false" isPinned="false" index="574:Walls" />
+  </Elements>
+  <Connectors>
+    <Dynamo.Graph.Connectors.ConnectorModel start="5f78b7a8-1fd0-4a36-92cf-b12610223df0" start_index="0" end="102c0931-2cd4-43ec-a465-b977d0684467" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="2cc0cc08-2541-485e-aa87-440f7e2f3e12" start_index="0" end="102c0931-2cd4-43ec-a465-b977d0684467" end_index="1" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="a1c858a3-88d3-46ab-8cea-04dc2078b2d3" start_index="0" end="5f78b7a8-1fd0-4a36-92cf-b12610223df0" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="fbc9c7eb-5b5e-4c28-894e-8e7efa5e03c9" start_index="0" end="2cc0cc08-2541-485e-aa87-440f7e2f3e12" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="c312ad7f-46c6-46b3-9f48-ab3a5a2971d0" start_index="0" end="a25d6760-43ae-48f7-a3a3-e00f52941473" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="e14e9754-9d44-4783-908f-1c792843a830" start_index="0" end="a25d6760-43ae-48f7-a3a3-e00f52941473" end_index="1" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="79cf7bc1-bde6-4cf2-b707-cdf3fb7e5ca5" start_index="0" end="c312ad7f-46c6-46b3-9f48-ab3a5a2971d0" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="1fac8032-9bf5-412f-aadc-4dc5c915551b" start_index="0" end="e14e9754-9d44-4783-908f-1c792843a830" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="9c44a5db-075e-42a9-9e01-99ee74db508e" start_index="0" end="ae1758af-0df0-4511-a292-abbe490a7290" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="06138292-5f7f-45c2-ad72-fbbf551775db" start_index="0" end="ae1758af-0df0-4511-a292-abbe490a7290" end_index="1" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="3d304424-3026-428f-9d8b-91ee65a02f2e" start_index="0" end="06138292-5f7f-45c2-ad72-fbbf551775db" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="1a8eeef5-fa96-4e33-9b42-ee3ace541f49" start_index="0" end="9c44a5db-075e-42a9-9e01-99ee74db508e" end_index="0" portType="0" />
+  </Connectors>
+  <Notes />
+  <Annotations />
+  <Presets />
+  <Cameras>
+    <Camera Name="Background Preview" eyeX="-17" eyeY="24" eyeZ="50" lookX="12" lookY="-13" lookZ="-58" upX="0" upY="1" upZ="0" />
+  </Cameras>
+</Workspace>
